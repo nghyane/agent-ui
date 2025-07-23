@@ -59,7 +59,7 @@ export function AgentSelector() {
       value={agentId || ''}
       onValueChange={(value) => handleOnValueChange(value)}
     >
-      <SelectTrigger className="h-9 w-full rounded border border-accent bg-accent text-xs font-semibold uppercase font-inter">
+      <SelectTrigger className="h-9 w-full rounded border border-accent bg-accent font-inter text-xs font-semibold uppercase">
         <SelectValue placeholder="Select Agent" />
       </SelectTrigger>
       <SelectContent className="border-none bg-background font-inter shadow-lg">
@@ -69,7 +69,7 @@ export function AgentSelector() {
             key={`${agent.value}-${index}`}
             value={agent.value}
           >
-            <div className="flex items-center gap-3 text-xs font-semibold uppercase font-inter">
+            <div className="flex items-center gap-3 font-inter text-xs font-semibold uppercase">
               <Icon type={'agent'} size="xs" />
               {agent.label}
             </div>

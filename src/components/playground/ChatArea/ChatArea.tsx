@@ -9,7 +9,7 @@ const ChatArea = () => {
       <div className="flex flex-1 flex-col overflow-hidden">
         <MessageArea />
       </div>
-      <div className="bg-background/95 backdrop-blur-sm px-6 py-4">
+      <div className="bg-background/95 px-6 py-4 backdrop-blur-sm">
         <ChatInput />
       </div>
     </div>

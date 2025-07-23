@@ -34,8 +34,12 @@ interface ReferenceItemProps {
 
 const ReferenceItem: FC<ReferenceItemProps> = ({ reference }) => (
   <div className="relative flex h-[63px] w-[190px] cursor-default flex-col justify-between overflow-hidden rounded-lg bg-accent p-3 transition-colors hover:bg-accent/80">
-    <Paragraph size="sm" className="font-medium text-primary">{reference.name}</Paragraph>
-    <Paragraph size="xs" className="truncate text-muted">{reference.content}</Paragraph>
+    <Paragraph size="sm" className="font-medium text-primary">
+      {reference.name}
+    </Paragraph>
+    <Paragraph size="xs" className="truncate text-muted">
+      {reference.content}
+    </Paragraph>
   </div>
 )
 
@@ -73,7 +77,12 @@ const AgentMessageWrapper = ({ message }: MessageWrapperProps) => {
               <Icon type="reasoning" size="sm" />
             </Tooltip>
             <div className="flex flex-col gap-3">
-              <Paragraph size="xs" className="font-semibold uppercase text-primary">Reasoning</Paragraph>
+              <Paragraph
+                size="xs"
+                className="font-semibold uppercase text-primary"
+              >
+                Reasoning
+              </Paragraph>
               <Reasonings reasoning={message.extra_data.reasoning_steps} />
             </div>
           </div>
@@ -128,7 +137,9 @@ const AgentMessageWrapper = ({ message }: MessageWrapperProps) => {
 const Reasoning: FC<ReasoningStepProps> = ({ index, stepTitle }) => (
   <div className="flex items-center gap-2 text-secondary">
     <div className="flex h-[20px] items-center rounded-lg bg-accent p-2">
-      <Paragraph size="xs" className="font-semibold">STEP {index + 1}</Paragraph>
+      <Paragraph size="xs" className="font-semibold">
+        STEP {index + 1}
+      </Paragraph>
     </div>
     <Paragraph size="xs">{stepTitle}</Paragraph>
   </div>
@@ -147,7 +158,9 @@ const Reasonings: FC<ReasoningProps> = ({ reasoning }) => (
 
 const ToolComponent = memo(({ tools }: ToolCallProps) => (
   <div className="cursor-default rounded-full bg-accent px-3 py-1.5">
-    <Paragraph size="xs" className="font-semibold uppercase text-primary">{tools.tool_name}</Paragraph>
+    <Paragraph size="xs" className="font-semibold uppercase text-primary">
+      {tools.tool_name}
+    </Paragraph>
   </div>
 ))
 ToolComponent.displayName = 'ToolComponent'

@@ -50,19 +50,19 @@ const ChatInput = () => {
               handleSubmit()
             }
           }}
-          className="min-h-[60px] w-full resize-none rounded-2xl border border-gray-200 bg-gray-50/80 backdrop-blur-sm px-6 pr-16 py-4 text-base text-gray-900 placeholder:text-gray-500 focus:outline-none focus:border-gray-200 focus:ring-0 transition-all duration-200"
+          className="min-h-[60px] w-full resize-none rounded-2xl border border-gray-200 bg-gray-50/80 px-6 py-4 pr-16 text-base text-gray-900 backdrop-blur-sm transition-all duration-200 placeholder:text-gray-500 focus:border-gray-200 focus:outline-none focus:ring-0"
           style={{ outline: 'none', boxShadow: 'none' }}
           disabled={!selectedAgent}
           ref={chatInputRef}
         />
-        
+
         {/* Right side send button */}
         <div className="absolute right-3">
           <Button
             onClick={handleSubmit}
             disabled={!selectedAgent || !inputMessage.trim() || isStreaming}
             size="sm"
-            className="h-10 w-10 rounded-xl bg-gray-800 p-0 text-white border-0 hover:bg-gray-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
+            className="h-10 w-10 rounded-xl border-0 bg-gray-800 p-0 text-white transition-all duration-200 hover:scale-105 hover:bg-gray-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isStreaming ? (
               <div className="flex items-center justify-center">

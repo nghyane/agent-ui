@@ -75,18 +75,16 @@ const AgentMessage = ({ message }: MessageProps) => {
 
   return (
     <div className="group flex w-full items-start gap-3 font-inter">
-      <div className="flex-shrink-0 mt-1">
+      <div className="mt-1 flex-shrink-0">
         <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-brand/15 to-brand/5">
           <Icon type="agent" size="xs" />
         </div>
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="min-w-0 flex-1">
         <div className="mb-2">
           <span className="text-xs font-medium text-muted">Agent</span>
         </div>
-        <div className="text-primary">
-          {messageContent}
-        </div>
+        <div className="text-primary">{messageContent}</div>
       </div>
     </div>
   )
@@ -95,18 +93,16 @@ const AgentMessage = ({ message }: MessageProps) => {
 const UserMessage = memo(({ message }: MessageProps) => {
   return (
     <div className="group flex w-full items-start gap-3 font-inter">
-      <div className="flex-shrink-0 mt-1">
+      <div className="mt-1 flex-shrink-0">
         <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-accent/20 to-accent/10">
           <Icon type="user" size="xs" />
         </div>
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="min-w-0 flex-1">
         <div className="mb-2">
           <span className="text-xs font-medium text-muted">You</span>
         </div>
-        <div className="text-primary">
-          {message.content}
-        </div>
+        <div className="text-primary">{message.content}</div>
       </div>
     </div>
   )

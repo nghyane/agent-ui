@@ -65,16 +65,19 @@ const SessionItem = ({
     <>
       <div
         className={cn(
-          'group flex h-11 w-full cursor-pointer items-center justify-between rounded border px-3 py-2 transition-all duration-200 font-inter',
+          'group flex h-11 w-full cursor-pointer items-center justify-between rounded border px-3 py-2 font-inter transition-all duration-200',
           isSelected
-            ? 'cursor-default bg-brand/10 border-brand/20'
-            : 'bg-background border-accent hover:bg-accent hover:border-brand/30 hover:scale-[1.01]'
+            ? 'cursor-default border-brand/20 bg-brand/10'
+            : 'border-accent bg-background hover:scale-[1.01] hover:border-brand/30 hover:bg-accent'
         )}
         onClick={handleGetSession}
       >
         <div className="flex flex-col gap-1">
           <h4
-            className={cn('text-sm font-medium font-inter', isSelected && 'text-brand')}
+            className={cn(
+              'font-inter text-sm font-medium',
+              isSelected && 'text-brand'
+            )}
           >
             {truncateText(title, 20)}
           </h4>

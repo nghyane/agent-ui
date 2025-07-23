@@ -27,10 +27,7 @@ const SkeletonList: FC<SkeletonListProps> = ({ skeletonCount }) => {
   return skeletons.map((skeleton, index) => (
     <Skeleton
       key={skeleton}
-      className={cn(
-        'mb-1 h-11 rounded px-3 py-2',
-        index > 0 && 'bg-accent'
-      )}
+      className={cn('mb-1 h-11 rounded px-3 py-2', index > 0 && 'bg-accent')}
     />
   ))
 }
@@ -53,15 +50,8 @@ const Sessions = () => {
     history: 'push'
   })
   const [sessionId] = useQueryState('session')
-  const {
-    selectedEndpoint,
-    isEndpointActive,
-    isEndpointLoading,
-    sessionsData,
-    hydrated,
-    hasStorage,
-    setSessionsData
-  } = usePlaygroundStore()
+  const { isEndpointLoading, sessionsData, hydrated, setSessionsData } =
+    usePlaygroundStore()
   const [isScrolling, setIsScrolling] = useState(false)
   const [selectedSessionId, setSelectedSessionId] = useState<string | null>(
     null
@@ -104,12 +94,7 @@ const Sessions = () => {
       setSessionsData(() => null)
       getSessions(agentId || 'default')
     }
-  }, [
-    getSessions,
-    isEndpointLoading,
-    setSessionsData,
-    agentId
-  ])
+  }, [getSessions, isEndpointLoading, setSessionsData, agentId])
 
   useEffect(() => {
     if (sessionId) {
@@ -135,7 +120,9 @@ const Sessions = () => {
   if (isSessionsLoading || isEndpointLoading)
     return (
       <div className="w-full">
-        <div className="mb-3 text-sm font-semibold text-gray-900">Lịch sử tư vấn</div>
+        <div className="mb-3 text-sm font-semibold text-gray-900">
+          Lịch sử tư vấn
+        </div>
         <div className="mt-4 h-[calc(100vh-280px)] w-full overflow-y-auto">
           <SkeletonList skeletonCount={5} />
         </div>
@@ -143,7 +130,9 @@ const Sessions = () => {
     )
   return (
     <div className="w-full">
-      <div className="mb-3 w-full text-sm font-semibold text-gray-900">Lịch sử tư vấn</div>
+      <div className="mb-3 w-full text-sm font-semibold text-gray-900">
+        Lịch sử tư vấn
+      </div>
       <div
         className={`h-[calc(100vh-280px)] overflow-y-auto font-inter transition-all duration-300 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar]:transition-opacity [&::-webkit-scrollbar]:duration-300 ${isScrolling ? '[&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:opacity-0' : '[&::-webkit-scrollbar]:opacity-100'}`}
         onScroll={handleScroll}
