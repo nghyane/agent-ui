@@ -9,6 +9,7 @@ import {
   getPlaygroundStatusAPI
 } from '@/api/playground'
 import { useQueryState } from 'nuqs'
+import useSessionLoader from './useSessionLoader'
 
 const useChatActions = () => {
   const { chatInputRef } = usePlaygroundStore()
@@ -21,6 +22,7 @@ const useChatActions = () => {
   const setIsEndpointLoading = usePlaygroundStore(
     (state) => state.setIsEndpointLoading
   )
+  const { getSessions } = useSessionLoader()
   const setAgents = usePlaygroundStore((state) => state.setAgents)
   const setSelectedModel = usePlaygroundStore((state) => state.setSelectedModel)
   const [agentId, setAgentId] = useQueryState('agent')
@@ -44,11 +46,21 @@ const useChatActions = () => {
     }
   }, [selectedEndpoint])
 
+  const reloadSessions = useCallback(
+    (agentId: string) => {
+      getSessions(agentId)
+    },
+    [getSessions]
+  )
+
   const clearChat = useCallback(() => {
     setMessages([])
     setSessionId(null)
+    if (agentId) {
+      reloadSessions(agentId)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [agentId])
 
   const focusChatInput = useCallback(() => {
     setTimeout(() => {
@@ -103,7 +115,8 @@ const useChatActions = () => {
     addMessage,
     getAgents,
     focusChatInput,
-    initializePlayground
+    initializePlayground,
+    reloadSessions
   }
 }
 
